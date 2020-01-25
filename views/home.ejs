@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            #nav
+            {
+                width: 100%;
+                height: 8%;
+                padding: 20px 10%;
+                font-size: 20px;
+                color: #fff;
+                background-color: rgba(0,0,0,0.9);
+            }
+            #add
+            {
+                font-size: 18px;
+                float: right;
+                margin-right: 20px;
+                background-color: darkgreen;
+                color:#fff;
+                border-radius: 5px;
+                padding: 4px 4px;
+            }
+            td,th
+            {
+                width: 200px;
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="nav">
+            <div style="float: left; margin-left: 20px;">ADDRESS BOOK</div>
+            <span id='text'style="float:right">
+                <% if (user){ %>
+                    <%= user.name %>
+                <% } %>
+            </span>
+            <a href="/logout"><span id="text" style="float: right; color:#fff">&nbsp;LogOut&nbsp;&nbsp;</span></a>
+            <a href="/add/address"><span id='add'>ADD</span></a>
+        </div>
+        <div style="top:50%; left:50%; transform:translate(-50%,-50%); position:absolute;">
+            <table>
+               <tr style="font-size: 20px;">
+                   <th>NAME</th>
+                   <th>ADDRESS</th>
+                   <th>PHONE</th>
+               </tr>
+               <% address.forEach(function(i){ %>
+                <tr>
+                    <td><%=i.name %></td>
+                    <td><%=i.address %></td>
+                    <td><%=i.phone %></td>
+                    <td><a href="/edit/address/<%=i._id %>"><button>EDIT</button></a></td>
+                    <td><a href="/delete/address/<%=i._id %>"><button>DELETE</button></a></td>
+                </tr>
+              <% }); %> 
+            </table>
+        </div>
+    </body>
+</html>

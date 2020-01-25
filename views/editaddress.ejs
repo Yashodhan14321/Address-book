@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>ADD ADDRESS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            body
+            {
+                font-size: 20px;
+            }
+            input
+            {
+                margin-top: 15px;
+                border-radius: 10px;
+                border: 2px solid black; 
+            }
+            textarea
+            {
+                margin-top: 15px;
+                border-radius: 10px;
+                border: 2px solid black;
+            }
+            button
+            {
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <center style="top:50%; left:50%; transform:translate(-50%,-50%); position:absolute;">
+            <form action='/edit/address/<%=address._id%>' method="POST">
+                EDIT ADDRESS
+                <br>
+                <input name="name" value="<%=address.name%>" type="text" placeholder="NAME">
+                <br>
+                <input name="address" value="<%=address.address%>" type="text" placeholder="ADDRESS">
+                <br>
+                <input name="phone" value="<%=address.phone%>" type="text" placeholder="PHONE">
+                <br>
+                <button type="submit" class="btn-success">EDIT</button>
+                <br>
+            </form>
+        </center>
+    </body>
+</html>
